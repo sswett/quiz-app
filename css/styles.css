@@ -1,0 +1,65 @@
+.presentation
+{
+	/* padding: 1em .5em; */
+}
+
+.quadrant
+{
+	width: 40%;
+	border: 1px solid black;
+	padding: 1.5em;
+	display: inline-block;
+	margin: 1em;
+
+}
+
+#question-heading
+{
+
+}
+
+#question-subheading
+{
+	margin-top: 2em;
+	margin-bottom: 1.5em;
+}
+
+#question-heading h2
+{
+	font-size: 2em;
+}
+
+#question-subheading h3
+{
+	font-size: 1.3em;
+}
+
+#question-presentation
+{
+}
+
+#question-and-choices-section
+{
+}
+
+
+#answer-presentation
+{
+}
+
+#answer-options ul
+{
+	/* margin-left: 1em; */
+}
+
+#answer-options li
+{
+	line-height: 2;
+}
+
+.answer-input,
+.answer-label
+{
+	display: inline-block;
+	margin-left: .8em;
+}

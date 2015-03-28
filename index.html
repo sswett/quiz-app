@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Driving Quizz</title>
+	<title>Driving Quiz</title>
 
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/styles.css">
@@ -12,23 +12,64 @@
 </head>
 <body>
 
-<section id="question-presentation">
+<section id="question-presentation" class="presentation">
 
-	<section id="question-and-choices-section">
+	<section id="question-and-choices-section" class="quadrant">
+
+		<div id="question-heading">
+			<h2>
+				Question <span id="question-no">1</span> of <span id="total-questions">6</span>
+			</h2>
+		</div>
+
+		<div id="question-subheading">
+			<h3>
+				<span id="question=text">What is the proper following distance under good driving conditions?</span>
+			</h3>
+		</div>
+
+		<div id="answer-options">
+
+			<ul>
+
+				<li>
+					<input type="radio" id="answer-1" class="answer-input" value="1"><label for="answer-1" class="answer-label">A. <span id="answer-1-text">Choice A</span></label>
+				</li>
+
+				<li>
+					<input type="radio" id="answer-2" class="answer-input" value="2"><label for="answer-2" class="answer-label">B. <span id="answer-2-text">Choice B</span></label>
+				</li>
+
+				<li>
+					<input type="radio" id="answer-3" class="answer-input" value="3"><label for="answer-3" class="answer-label">C. <span id="answer-3-text">Choice C</span></label>
+				</li>
+
+				<li>
+					<input type="radio" id="answer-4" class="answer-input" value="4"><label for="answer-4" class="answer-label">D. <span id="answer-4-text">Choice D</span></label>
+				</li>
+
+				<li>
+					<input type="radio" id="answer-5" class="answer-input" value="5"><label for="answer-5" class="answer-label">E. <span id="answer-5-text">Choice E</span></label>
+				</li>
+
+			</ul>
+
+		</div>
+
 	</section>
 
-	<section id="image-section">
+	<section id="image-section" class="quadrant">
 	</section>
 
 </section>
 
-<section id="answer-presentation">
+<section id="answer-presentation" class="presentation">
 </section>
 
-	<section id="submit-answer-section">
+	<section id="submit-answer-section" class="quadrant">
 	</section>
 
-	<section id="stats-and-nav-section">
+	<section id="stats-and-nav-section" class="quadrant">
 	</section>
 
 	
