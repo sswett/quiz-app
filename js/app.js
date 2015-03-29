@@ -1,34 +1,46 @@
 var questionsArray = new Array();
+var DEFAULT_ANSWER_NO = -1;
 
 
 $(document).ready(function() {
 
-	createAndAddQuestion("How old am I?", 40, 45, 50, 55, 51, 5, '');
-	createAndAddQuestion("How old is Peggy?", 35, 40, 45, 50, 55, 4, '');
+	createAndAddQuestion("How old is Steve?", [40, 45, 50, 55, 51], 5, '');
+	createAndAddQuestion("How old is Peggy?", [35, 40, 45, 50, 55], 4, '');
+	createAndAddQuestion("How old is Tanner?", [21, 22, 23, 24, 25], 2, '');
+	createAndAddQuestion("How old is Andy?", [19, 20, 21, 22, 23], 2, '');
 
 	// logQuestions();   // looks good
+
+	$("#start-over-link").click(function() {
+		startOver();
+	});
+
+	startOver();
 
 });
 
 
-function Question(pQuestionText, pAnswer1Text, pAnswer2Text, pAnswer3Text, pAnswer4Text, pAnswer5Text, pCorrectAnswerNo, pImageUrl)
+function startOver()
 {
-	this.questionText = pQuestionText;
-	this.answer1Text = pAnswer1Text;
-	this.answer2Text = pAnswer2Text;
-	this.answer3Text = pAnswer3Text;
-	this.answer4Text = pAnswer4Text;
-	this.answer5Text = pAnswer5Text;
-	this.correctAnswerNo = pCorrectAnswerNo;
-	this.imageUrl = pImageUrl;
-
-	this.selectedAnswerNo = 0;   // default value
+	resetResponsesAndStats();
+	displayQuestion(0);
 }
 
 
-function createAndAddQuestion(pQuestionText, pAnswer1Text, pAnswer2Text, pAnswer3Text, pAnswer4Text, pAnswer5Text, pCorrectAnswerNo, pImageUrl)
+function Question(pQuestionText, pAnswerTextArray, pCorrectAnswerNo, pImageFilename)
 {
-	var question = new Question(pQuestionText, pAnswer1Text, pAnswer2Text, pAnswer3Text, pAnswer4Text, pAnswer5Text, pCorrectAnswerNo, pImageUrl);
+	this.questionText = pQuestionText;
+	this.answerTextArray = pAnswerTextArray;
+	this.correctAnswerNo = pCorrectAnswerNo;
+	this.imageFilename = pImageFilename;
+
+	this.selectedAnswerNo = DEFAULT_ANSWER_NO;
+}
+
+
+function createAndAddQuestion(pQuestionText, pAnswerTextArray, pCorrectAnswerNo, pImageFilename)
+{
+	var question = new Question(pQuestionText, pAnswerTextArray, pCorrectAnswerNo, pImageFilename);
 	questionsArray.push(question);
 }
 
@@ -39,12 +51,45 @@ function logQuestions()
 	{
 		var question = questionsArray[x];
 		console.log("questionText: " + question.questionText);
-		console.log("answer1Text: " + question.answer1Text);
-		console.log("answer2Text: " + question.answer2Text);
-		console.log("answer3Text: " + question.answer3Text);
-		console.log("answer4Text: " + question.answer4Text);
-		console.log("answer5Text: " + question.answer5Text);
+
+		for (var a = 0; a < question.answerTextArray.length; a++)
+		{
+			console.log("answerTextArray[" + a + "]: " + question.answerTextArray[a]);
+		}
+
 		console.log("correctAnswerNo: " + question.correctAnswerNo);
-		console.log("imageUrl: " + question.imageUrl + "\n");
+		console.log("imageFilename: " + question.imageFilename);
+		console.log("");
 	}
+}
+
+
+function resetResponsesAndStats()
+{
+	$(".stat-entry").remove();
+
+	for (var x = 0; x < questionsArray.length; x++)
+	{
+		questionsArray[x].selectedAnswerNo = DEFAULT_ANSWER_NO;
+
+		$("#stats ul").append('<li class="stat-entry" id="question-' + x + '-stat"><div class="stat-heading">' + (x + 1) + 
+			'</div><div class="stat-indicator"></div></li>');
+	}
+
+	$("#total-questions").html(questionsArray.length);
+
+}
+
+
+function displayQuestion(pQuestionIndex)
+{
+	$("#question-no").html((pQuestionIndex + 1));
+	var question = questionsArray[pQuestionIndex];
+	$("#question-text").html(question.questionText);
+
+	for (var a = 0; a < question.answerTextArray.length; a++)
+	{
+		$("#answer-" + a + "-text").html(question.answerTextArray[a]);
+	}
+
 }
