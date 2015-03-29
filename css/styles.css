@@ -10,6 +10,7 @@
 	padding: 1.5em;
 	display: inline-block;
 	margin: 1em;
+	float: left;
 
 }
 
@@ -42,9 +43,13 @@
 {
 }
 
+#image-section
+{
+}
 
 #answer-presentation
 {
+	clear: both;
 }
 
 #answer-options ul
@@ -62,4 +67,28 @@
 {
 	display: inline-block;
 	margin-left: .8em;
+}
+
+#start-over-heading
+{
+	text-align: right;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#image-container
+{
+	border: 1px solid blue;
+	margin-top: 1em;
+	min-height: 250px;
+}
+
+#submit-answer-button
+{
+	padding: .5em;
+	border: 1px solid gray;
+	min-width: 100px;
+	max-width: 150px;
+	text-align: center;
+	/* margin: 0 auto; */
 }
