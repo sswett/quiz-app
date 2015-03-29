@@ -17,6 +17,16 @@ $(document).ready(function() {
 		submitAnswer();
 	});
 
+	/*
+	$(".stat-heading").click(function() {
+		jumpToQuestion(this);
+	});
+	*/
+
+	$("#stats ul").on("click", ".stat-heading", function() {
+		jumpToQuestion(this);
+	});
+
 	startOver();
 
 });
@@ -24,10 +34,10 @@ $(document).ready(function() {
 
 function setupQuestions()
 {
-	createAndAddQuestion("How old is Steve?", [40, 45, 50, 55, 51], 5, '');
-	createAndAddQuestion("How old is Peggy?", [35, 40, 45, 50, 55], 4, '');
-	createAndAddQuestion("How old is Tanner?", [21, 22, 23, 24, 25], 2, '');
-	createAndAddQuestion("How old is Andy?", [19, 20, 21, 22, 23], 2, '');
+	createAndAddQuestion("How old is Steve?", [40, 45, 50, 55, 51], 4, '');
+	createAndAddQuestion("How old is Peggy?", [35, 40, 45, 50, 55], 3, '');
+	createAndAddQuestion("How old is Tanner?", [21, 22, 23, 24, 25], 1, '');
+	createAndAddQuestion("How old is Andy?", [19, 20, 21, 22, 23], 1, '');
 }
 
 
@@ -46,6 +56,14 @@ function hideSubmissionError()
 }
 
 
+function jumpToQuestion(pStatHeadingElem)
+{
+	var jumpToQuestionOneBased = parseInt( $(pStatHeadingElem).html() );
+	currentQuestion = jumpToQuestionOneBased - 1;
+	displayCurrentQuestion();
+}
+
+
 function submitAnswer()
 {
 	hideSubmissionError();
@@ -58,6 +76,7 @@ function submitAnswer()
 	}
 
 	questionsArray[currentQuestion].selectedAnswerNo = answer;
+	updateStatIndicator();
 
 	if (currentQuestion < questionsArray.length - 1)
 	{
@@ -67,6 +86,21 @@ function submitAnswer()
 	else
 	{
 		logQuestions();   // temporary
+	}
+}
+
+
+function updateStatIndicator()
+{
+	var indicatorQry = $("#question-" + currentQuestion + "-stat .stat-indicator");
+	indicatorQry.removeClass("red").removeClass("green");
+
+	var question = questionsArray[currentQuestion];
+
+	if (question.selectedAnswerNo != DEFAULT_ANSWER_NO)
+	{
+		var newClass = question.selectedAnswerNo == question.correctAnswerNo ? "green" : "red";
+		indicatorQry.addClass(newClass);
 	}
 }
 
@@ -139,6 +173,9 @@ function displayCurrentQuestion()
 
 	$("input:radio[name=answer]").prop("checked", false);
 
-	// TODO: If the answer is on file already, check it:
+	if (question.selectedAnswerNo != DEFAULT_ANSWER_NO)
+	{
+		$("#answer-" + question.selectedAnswerNo).prop("checked", true);
+	}
 
 }
