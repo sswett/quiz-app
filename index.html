@@ -12,14 +12,20 @@
 </head>
 <body>
 
-<section id="question-presentation" class="presentation">
+	<section id="content">
 
-	<section id="question-and-choices-section" class="quadrant">
+		<div>
+			<div id="question-heading" class="left-portion">
+				<h2>
+					Question <span id="question-no">1</span> of <span id="total-questions">6</span>
+				</h2>
+			</div>
 
-		<div id="question-heading">
-			<h2>
-				Question <span id="question-no">1</span> of <span id="total-questions">6</span>
-			</h2>
+			<div id="start-over-heading" class="right-portion">
+				<span id="start-over-link">
+					Start Over
+				</span>
+			</div>
 		</div>
 
 		<div id="question-subheading">
@@ -28,68 +34,60 @@
 			</h3>
 		</div>
 
-		<div id="answer-options">
+		<div>
 
-			<ul>
+			<div id="answer-options" class="left-portion">
 
-				<li>
-					<input name="answer" type="radio" id="answer-0" class="answer-input" value="0"><label for="answer-0" class="answer-label">A. <span id="answer-0-text">Choice A</span></label>
-				</li>
+				<ul>
 
-				<li>
-					<input name="answer" type="radio" id="answer-1" class="answer-input" value="1"><label for="answer-1" class="answer-label">B. <span id="answer-1-text">Choice B</span></label>
-				</li>
+					<li>
+						<input name="answer" type="radio" id="answer-0" class="answer-input" value="0"><label for="answer-0" class="answer-label">A. <span id="answer-0-text">Choice A</span></label>
+					</li>
 
-				<li>
-					<input name="answer" type="radio" id="answer-2" class="answer-input" value="2"><label for="answer-2" class="answer-label">C. <span id="answer-2-text">Choice C</span></label>
-				</li>
+					<li>
+						<input name="answer" type="radio" id="answer-1" class="answer-input" value="1"><label for="answer-1" class="answer-label">B. <span id="answer-1-text">Choice B</span></label>
+					</li>
 
-				<li>
-					<input name="answer" type="radio" id="answer-3" class="answer-input" value="3"><label for="answer-3" class="answer-label">D. <span id="answer-3-text">Choice D</span></label>
-				</li>
+					<li>
+						<input name="answer" type="radio" id="answer-2" class="answer-input" value="2"><label for="answer-2" class="answer-label">C. <span id="answer-2-text">Choice C</span></label>
+					</li>
 
-				<li>
-					<input name="answer" type="radio" id="answer-4" class="answer-input" value="4"><label for="answer-4" class="answer-label">E. <span id="answer-4-text">Choice E</span></label>
-				</li>
+					<li>
+						<input name="answer" type="radio" id="answer-3" class="answer-input" value="3"><label for="answer-3" class="answer-label">D. <span id="answer-3-text">Choice D</span></label>
+					</li>
 
-			</ul>
+					<li>
+						<input name="answer" type="radio" id="answer-4" class="answer-input" value="4"><label for="answer-4" class="answer-label">E. <span id="answer-4-text">Choice E</span></label>
+					</li>
+
+				</ul>
+
+			</div>
+
+			<div id="image-container" class="right-portion">
+			</div>
 
 		</div>
 
-	</section>
+		<div id="answer-submittal-section">
+			<div id="submit-answer-button">
+				Submit Answer
+			</div>
 
-	<section id="image-section" class="quadrant">
-
-		<div id="start-over-heading">
-			<span id="start-over-link">
-				Start Over
-			</span>
+			<div id="submission-error">
+				Please choose an answer before submitting.
+			</div>
 		</div>
 
-		<div id="image-container">
-		</div>
 
-	</section>
+		<div>
+			<div id="question-stats-heading" class="left-portion">
+				Stats and Navigation
+			</div>
 
-</section>
-
-<section id="answer-presentation" class="presentation">
-
-	<section id="submit-answer-section" class="quadrant">
-
-		<div id="submit-answer-button">
-			Submit Answer
-		</div>
-
-		<div id="submission-error">
-			Please choose an answer before submitting.
-		</div>
-	</section>
-
-	<section id="stats-and-nav-section" class="quadrant">
-
-		<div id="question-stats-heading">
-			Stats for Questions
+			<div id="overall-score" class="right-portion">
+				Overall Score: <span id="questionsCorrect">2</span> of <span id="questionsAnswered">4</span> (<span id="percentCorrect">50</span>%)
+			</div>
 		</div>
 
 		<div id="stats">
@@ -138,9 +136,8 @@
 			</ul>
 		</div>
 
-	</section>
 
-</section>
+	</section>
 	
 </body>
 </html>

@@ -1,27 +1,39 @@
-.presentation
+#content
 {
-	/* padding: 1em .5em; */
-}
-
-.quadrant
-{
-	width: 45%;
+	width: 95%;
 	border: 1px solid black;
 	padding: 1.5em;
-	display: inline-block;
-	margin: 1em;
-	float: left;
+	margin: 0 auto;
+}
 
+.left-portion
+{
+	width: 45%;
+	float: left;
+}
+
+.right-portion
+{
+	width: 45%;
+	float: right;
+	text-align: right;
 }
 
 #question-heading
 {
+}
 
+#start-over-heading
+{
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: 1.2em;
 }
 
 #question-subheading
 {
-	margin-top: 2em;
+	clear: both;
+	margin-top: 3em;
 	margin-bottom: 1.5em;
 }
 
@@ -35,14 +47,6 @@
 	font-size: 1.3em;
 }
 
-#question-presentation
-{
-}
-
-#question-and-choices-section
-{
-}
-
 #image-section
 {
 }
@@ -52,9 +56,24 @@
 	clear: both;
 }
 
+#answer-options
+{
+}
+
+#image-container
+{
+	border: 1px solid blue;
+	margin-top: 1em;
+	min-height: 50px;
+}
+
+#answer-submittal-section
+{
+	clear: both;
+}
+
 #answer-options ul
 {
-	/* margin-left: 1em; */
 }
 
 #answer-options li
@@ -69,49 +88,48 @@
 	margin-left: .8em;
 }
 
-#start-over-heading
-{
-	text-align: right;
-	text-decoration: underline;
-	cursor: pointer;
-	font-size: 1.2em;
-}
-
-#image-container
-{
-	border: 1px solid blue;
-	margin-top: 1em;
-	min-height: 250px;
-}
-
 #submit-answer-button
 {
+	display: inline-block;
+	margin-top: 1em;
 	padding: .5em;
 	border: 1px solid gray;
 	min-width: 100px;
 	max-width: 150px;
 	text-align: center;
 	cursor: pointer;
-	/* margin: 0 auto; */
 }
 
 #submission-error
 {
 	display: none;
 	margin-top: 1em;
+	margin-left: 2em;
+	color: red;
 }
 
 #question-stats-heading
 {
-	text-align: right;
+	margin-top: 1.5em;
 	margin-bottom: 1em;
 	font-size: 1.2em;
 	margin-right: .6em;
 }
 
+#overall-score
+{
+	display: none;
+	margin-top: 1.5em;
+	font-size: 1.2em;
+}
+
+#stats
+{
+	clear: both;
+}
+
 #stats ul
 {
-	text-align: right;
 }
 
 .stat-entry

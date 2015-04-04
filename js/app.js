@@ -47,6 +47,7 @@ function startOver()
 	currentQuestion = 0;
 	displayCurrentQuestion();
 	hideSubmissionError();
+	$("#overall-score").hide();
 }
 
 
@@ -71,11 +72,12 @@ function submitAnswer()
 
 	if (answer < 0 || answer > 4)
 	{
-		$("#submission-error").show();
+		$("#submission-error").css("display", "inline-block");
 		return;
 	}
 
 	questionsArray[currentQuestion].selectedAnswerNo = answer;
+	updateOverallScore();
 	updateStatIndicator();
 
 	if (currentQuestion < questionsArray.length - 1)
@@ -87,6 +89,44 @@ function submitAnswer()
 	{
 		logQuestions();   // temporary
 	}
+}
+
+
+function updateOverallScore()
+{
+		var questionsCorrect = 0;
+		var questionsAnswered = 0;
+
+	for (var x = 0; x < questionsArray.length; x++)
+	{
+		var question = questionsArray[x];
+
+		if (question.selectedAnswerNo != DEFAULT_ANSWER_NO)
+		{
+			questionsAnswered++;
+
+			if (question.selectedAnswerNo == question.correctAnswerNo)
+			{
+				questionsCorrect++;
+			}
+		}
+
+	}
+
+	var percentCorrect = 0;
+
+	if (questionsAnswered > 0)
+	{
+		percentCorrect = (questionsCorrect / questionsAnswered) * 100;
+	}
+
+	$("#questionsCorrect").html(questionsCorrect);
+	$("#questionsAnswered").html(questionsAnswered);
+
+	// Round following to one decimal position:
+	$("#percentCorrect").html( Math.round(percentCorrect * 10) / 10 );
+
+	$("#overall-score").show();
 }
 
 
