@@ -34,10 +34,17 @@ $(document).ready(function() {
 
 function setupQuestions()
 {
-	createAndAddQuestion("How old is Steve?", [40, 45, 50, 55, 51], 4, '');
-	createAndAddQuestion("How old is Peggy?", [35, 40, 45, 50, 55], 3, '');
-	createAndAddQuestion("How old is Tanner?", [21, 22, 23, 24, 25], 1, '');
-	createAndAddQuestion("How old is Andy?", [19, 20, 21, 22, 23], 1, '');
+	createAndAddQuestion("Unless otherwise posted, what is the speed limit on all highways and streets that are not designated as freeways?", 
+		['25 mph', '45 mph', '55 mph', '70 mph', 'Mach 3'], 2, 'speed-limit-infinity.png');
+
+	createAndAddQuestion("Which condition requires more stopping time and space?", 
+		['A hot day', 'Night time', 'Wet pavement', 'New pavement', "Using the Flintstones' car"], 2, 'car-did-not-stop.jpg');
+
+	createAndAddQuestion("When driving, keep your hands on the wheel and your eyes on the __________ .", 
+		['speedometer', 'mirror', 'glove box', 'road', 'hot girl'], 3, 'rocket-car.jpg');
+
+	createAndAddQuestion("Aggressive drivers do NOT do which of these?", 
+		['run stops signs and red lights', 'speed', 'tailgate', 'make improper hand gestures', 'wax your car during traffic jam'], 4, 'aggressive-driver.png');
 }
 
 
@@ -217,5 +224,7 @@ function displayCurrentQuestion()
 	{
 		$("#answer-" + question.selectedAnswerNo).prop("checked", true);
 	}
+
+	$("#question-image").attr("src", "images/" + question.imageFilename);
 
 }

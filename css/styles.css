@@ -33,7 +33,7 @@
 #question-subheading
 {
 	clear: both;
-	margin-top: 3em;
+	padding-top: 1.2em;
 	margin-bottom: 1.5em;
 }
 
@@ -65,6 +65,7 @@
 	border: 1px solid blue;
 	margin-top: 1em;
 	min-height: 50px;
+	text-align: left;
 }
 
 #answer-submittal-section
@@ -164,4 +165,9 @@
 .stat-indicator.green
 {
 	background-color: green;
+}
+
+#question-image
+{
+	max-height: 300px;
 }
