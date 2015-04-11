@@ -1,6 +1,7 @@
 var questionsArray = new Array();
 var currentQuestion = 0;   // 0-based index
 var DEFAULT_ANSWER_NO = -1;
+var afterPause = 0;
 
 
 $(document).ready(function() {
@@ -29,7 +30,17 @@ $(document).ready(function() {
 
 	startOver();
 
+	afterPause = 1;
+	setTimeout(displayAfterPause, 1000);
+	afterPause = 2;
+
 });
+
+
+function displayAfterPause()
+{
+	console.log("afterPause = " + afterPause);
+}
 
 
 function setupQuestions()
@@ -44,7 +55,7 @@ function setupQuestions()
 		['speedometer', 'mirror', 'glove box', 'road', 'hot girl'], 3, 'rocket-car.jpg');
 
 	createAndAddQuestion("Aggressive drivers do NOT do which of these?", 
-		['run stops signs and red lights', 'speed', 'tailgate', 'make improper hand gestures', 'wax your car during traffic jam'], 4, 'aggressive-driver.png');
+		['run stop signs and red lights', 'speed', 'tailgate', 'make improper hand gestures', 'wax your car during traffic jam'], 4, 'aggressive-driver.png');
 }
 
 

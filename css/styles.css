@@ -1,9 +1,11 @@
 #content
 {
 	width: 95%;
-	border: 1px solid black;
+	border: 1px solid gray;
 	padding: 1.5em;
-	margin: 0 auto;
+	margin: 1.5em auto;
+	background-color: cornsilk;
+	border-radius: 16px;
 }
 
 .left-portion
@@ -33,7 +35,7 @@
 #question-subheading
 {
 	clear: both;
-	padding-top: 1.2em;
+	padding-top: 2.5em;
 	margin-bottom: 1.5em;
 }
 
@@ -62,7 +64,6 @@
 
 #image-container
 {
-	border: 1px solid blue;
 	margin-top: 1em;
 	min-height: 50px;
 	text-align: left;
@@ -99,6 +100,9 @@
 	max-width: 150px;
 	text-align: center;
 	cursor: pointer;
+	background-color: cornflowerblue;
+	color: white;
+	border-radius: 6px;
 }
 
 #submission-error
@@ -170,4 +174,7 @@
 #question-image
 {
 	max-height: 300px;
+	max-width: 100%;
+	border: 1px solid gray;
+	border-radius: 16px;
 }
