@@ -1,7 +1,6 @@
 var questionsArray = new Array();
 var currentQuestion = 0;   // 0-based index
 var DEFAULT_ANSWER_NO = -1;
-var afterPause = 0;
 
 
 $(document).ready(function() {
@@ -18,29 +17,13 @@ $(document).ready(function() {
 		submitAnswer();
 	});
 
-	/*
-	$(".stat-heading").click(function() {
-		jumpToQuestion(this);
-	});
-	*/
-
 	$("#stats ul").on("click", ".stat-heading", function() {
 		jumpToQuestion(this);
 	});
 
 	startOver();
 
-	afterPause = 1;
-	setTimeout(displayAfterPause, 1000);
-	afterPause = 2;
-
 });
-
-
-function displayAfterPause()
-{
-	console.log("afterPause = " + afterPause);
-}
 
 
 function setupQuestions()
@@ -56,6 +39,44 @@ function setupQuestions()
 
 	createAndAddQuestion("Aggressive drivers do NOT do which of these?", 
 		['run stop signs and red lights', 'speed', 'tailgate', 'make improper hand gestures', 'wax your car during traffic jam'], 4, 'aggressive-driver.png');
+}
+
+
+function createAndAddQuestion(pQuestionText, pAnswerTextArray, pCorrectAnswerNo, pImageFilename)
+{
+	var question = new Question(pQuestionText, pAnswerTextArray, pCorrectAnswerNo, pImageFilename);
+	questionsArray.push(question);
+}
+
+
+function Question(pQuestionText, pAnswerTextArray, pCorrectAnswerNo, pImageFilename)
+{
+	this.questionText = pQuestionText;
+	this.answerTextArray = pAnswerTextArray;
+	this.correctAnswerNo = pCorrectAnswerNo;
+	this.imageFilename = pImageFilename;
+
+	this.selectedAnswerNo = DEFAULT_ANSWER_NO;
+}
+
+
+function logQuestions()
+{
+	for (var x = 0; x < questionsArray.length; x++)
+	{
+		var question = questionsArray[x];
+		console.log("questionText: " + question.questionText);
+
+		for (var a = 0; a < question.answerTextArray.length; a++)
+		{
+			console.log("answerTextArray[" + a + "]: " + question.answerTextArray[a]);
+		}
+
+		console.log("correctAnswerNo: " + question.correctAnswerNo);
+		console.log("imageFilename: " + question.imageFilename);
+		console.log("selectedAnswerNo: " + question.selectedAnswerNo);
+		console.log("");
+	}
 }
 
 
@@ -112,8 +133,8 @@ function submitAnswer()
 
 function updateOverallScore()
 {
-		var questionsCorrect = 0;
-		var questionsAnswered = 0;
+	var questionsCorrect = 0;
+	var questionsAnswered = 0;
 
 	for (var x = 0; x < questionsArray.length; x++)
 	{
@@ -163,44 +184,6 @@ function updateStatIndicator()
 }
 
 
-function Question(pQuestionText, pAnswerTextArray, pCorrectAnswerNo, pImageFilename)
-{
-	this.questionText = pQuestionText;
-	this.answerTextArray = pAnswerTextArray;
-	this.correctAnswerNo = pCorrectAnswerNo;
-	this.imageFilename = pImageFilename;
-
-	this.selectedAnswerNo = DEFAULT_ANSWER_NO;
-}
-
-
-function createAndAddQuestion(pQuestionText, pAnswerTextArray, pCorrectAnswerNo, pImageFilename)
-{
-	var question = new Question(pQuestionText, pAnswerTextArray, pCorrectAnswerNo, pImageFilename);
-	questionsArray.push(question);
-}
-
-
-function logQuestions()
-{
-	for (var x = 0; x < questionsArray.length; x++)
-	{
-		var question = questionsArray[x];
-		console.log("questionText: " + question.questionText);
-
-		for (var a = 0; a < question.answerTextArray.length; a++)
-		{
-			console.log("answerTextArray[" + a + "]: " + question.answerTextArray[a]);
-		}
-
-		console.log("correctAnswerNo: " + question.correctAnswerNo);
-		console.log("imageFilename: " + question.imageFilename);
-		console.log("selectedAnswerNo: " + question.selectedAnswerNo);
-		console.log("");
-	}
-}
-
-
 function resetResponsesAndStats()
 {
 	$(".stat-entry").remove();
@@ -214,7 +197,6 @@ function resetResponsesAndStats()
 	}
 
 	$("#total-questions").html(questionsArray.length);
-
 }
 
 
@@ -237,5 +219,4 @@ function displayCurrentQuestion()
 	}
 
 	$("#question-image").attr("src", "images/" + question.imageFilename);
-
 }

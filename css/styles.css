@@ -21,10 +21,6 @@
 	text-align: right;
 }
 
-#question-heading
-{
-}
-
 #start-over-heading
 {
 	text-decoration: underline;
@@ -49,19 +45,6 @@
 	font-size: 1.3em;
 }
 
-#image-section
-{
-}
-
-#answer-presentation
-{
-	clear: both;
-}
-
-#answer-options
-{
-}
-
 #image-container
 {
 	margin-top: 1em;
@@ -72,10 +55,6 @@
 #answer-submittal-section
 {
 	clear: both;
-}
-
-#answer-options ul
-{
 }
 
 #answer-options li
@@ -116,7 +95,7 @@
 #question-stats-heading
 {
 	margin-top: 1.5em;
-	margin-bottom: 1em;
+	margin-bottom: .5em;
 	font-size: 1.2em;
 	margin-right: .6em;
 }
@@ -131,10 +110,6 @@
 #stats
 {
 	clear: both;
-}
-
-#stats ul
-{
 }
 
 .stat-entry
